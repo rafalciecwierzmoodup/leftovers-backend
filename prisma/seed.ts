@@ -4,7 +4,7 @@ import { faker } from '@faker-js/faker';
 const prisma = new PrismaClient();
 
 async function main() {
-  const person1 = await prisma.user.upsert({
+  await prisma.user.upsert({
     where: { email: faker.internet.email() },
     update: {},
     create: {
@@ -15,7 +15,7 @@ async function main() {
     },
   });
 
-  const person2 = await prisma.user.upsert({
+  await prisma.user.upsert({
     where: { email: faker.internet.email() },
     update: {},
     create: {
@@ -25,17 +25,14 @@ async function main() {
       }),
     },
   });
-
-  console.log(person1);
-  console.log(person2);
 }
 
 main()
-  .then(async () => {
-    await prisma.$disconnect();
-  })
   .catch(async (e) => {
     console.error(e);
-    await prisma.$disconnect();
+
     process.exit(1);
+  })
+  .finally(async () => {
+    await prisma.$disconnect();
   });
