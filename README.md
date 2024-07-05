@@ -32,6 +32,19 @@
 $ npm install
 ```
 
+## Database
+
+```bash
+# seed the database
+$ npm run seed
+
+# run the migration in development environment
+$ npm run migrate
+
+# run the migration in production / testing environment
+$ npm run migrate:prod
+```
+
 ## Running the app
 
 ```bash
