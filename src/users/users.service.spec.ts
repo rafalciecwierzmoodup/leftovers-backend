@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { UsersService } from './users.service';
 import { UsersRepository } from './repositories/user.repository';
-import { mockedUser } from '../../test/mocks/mockUser';
+import { mockedUser } from '@test/mocks/mockUser';
 
 describe('UsersService', () => {
   let service: UsersService;
